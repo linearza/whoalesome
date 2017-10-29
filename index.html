@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Whoa!lesome - Supercharged whole food</title>
+  
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Allan:700|Open+Sans" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="wrap">
+      <img src="logo.png" width="350" height="80" class="logo" alt="Whoa!lesome - Supercharged whole food">
+
+      <h1>Whoa!lesome - Supercharged whole food</h1>
+
+      <h2>What makes our products awesome?</h2>
+
+      <div class="reason-container">
+        <div class="reason">
+          <h3>No Gluten</h3>
+          <p>Saving the day means no time for belly aches, so no super power-sapping wheat or gluten in our snacks.</p>
+        </div>
+
+        <div class="reason">
+          <h3>No Diary</h3>
+          <p>Cows don’t usually make great sidekicks (they mooove to slowly), so we decided to leave them out of this adventure.</p>
+        </div>
+
+        <div class="reason">
+          <h3>No Refined Sugar</h3>
+          <p>There’s no time for afternoon-napping when you’re out saving the world. For all the energy, without the slump, we only use whole fruits (and occasionally raw honey) to sweeten our products.</p>
+        </div>
+
+        <div class="reason">
+          <h3>Raw (mostly!)</h3>
+          <p>Super powers require super fuel – the kind that raw, enzyme-rich food provides. We aim to keep our products as raw as possible, so you can keep on fighting when everyone else calls it a day.</p>
+        </div>
+
+        <div class="reason">
+          <h3>Vegan (mostly!)</h3>
+          <p>We want our heroes to maximise their plant-based powers. Occasionally, however, we call on our black and yellow buzzing friends to help with an extra immunity and natural sweetness boost.</p>
+        </div>
+      </div>
+
+      <form id="contact-form" action="https://formspree.io/hello@whoalesome.com" method="post">
+
+        <h2>Contact us!</h2>
+        <p class="subheading">We do bulk orders and aim to supply offices too!</p>
+
+        <input type="text" name="firstname" placeholder="First name (required)" required class="half">
+        <input type="text" name="lastname" placeholder="Last name"  class="half">
+        <input type="text" name="phone" placeholder="Phone number">
+        <input type="email" name="_replyto" placeholder="Email">
+        <textarea name="message" cols="30" rows="6" placeholder="How can we help you?"></textarea>
+        <!-- CONFIG -->
+        <input class="is-hidden" type="text" name="_gotcha">
+        <input type="hidden" name="_subject" value="Subject">
+        <!-- /CONFIG -->
+        <input class="submit" type="submit" value="Send!">
+      </form>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      
+      (function($, window, document, undefined) {
+
+        'use strict';
+
+        $(function() {
+
+          // Contact form
+          var $contactForm = $('#contact-form'),
+            $submitButton = $('#contact-form input[type=submit]');
+          $contactForm.submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+              url: '//formspree.io/hello@whoalesome.co.za',
+              method: 'POST',
+              data: $(this).serialize(),
+              dataType: 'json',
+              beforeSend: function() {
+                $submitButton.prop('disabled', true);
+                $contactForm.find('.alert.sent').remove();
+                $submitButton.val('Sending message...');
+              },
+              success: function() {
+                // $contactForm.find('.alert.sending').remove();
+                $submitButton.before('<div class="alert sent">Thank you, we will be in contact shortly!</div>');
+                $submitButton.val('Message sent!');
+                $submitButton.prop('disabled', false);
+                setTimeout(function() {
+                  $submitButton.val('Send');
+                }, 5000);
+              },
+              error: function() {
+                $submitButton.before('<div class="alert error">Oops, there was an error. Please contact us directly at <a href="mailto:hello@whoalesome.com">hello@whoalesome.co.za</a></div>');
+                $submitButton.val('Error!');
+                $submitButton.prop('disabled', false);
+                setTimeout(function() {
+                  $submitButton.val('Send');
+                  $contactForm.find('.alert.error').remove();
+                }, 10000);
+              }
+            });
+          });
+
+
+          // Accordion
+
+          $('.accordion-item').click(function() {
+            $(this).toggleClass('is-open');
+          });
+
+
+        });
+
+      })(jQuery, window, document);
+    </script>
+
+  </body>
+</html>
