@@ -60,6 +60,7 @@ p{
   padding: 10px 20px;
   transition: color 100ms linear, border-color 100ms linear;
   background: #e5e5e5;
+  min-height: 235px;
 }
 
 .reason:active {
