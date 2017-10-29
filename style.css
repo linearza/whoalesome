@@ -88,11 +88,9 @@ p{
 }
 
 #contact-form input[type="submit"]{
-  background: #00af0a;
-  color: white;
-  border: 2px solid #ffffff;
-  font-weight: 500;
-  font-family: 'Allan', cursive;
+  width: auto;
+  padding: 10px 30px;
+  float: right;
 }
 
 
