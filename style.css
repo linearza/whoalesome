@@ -83,12 +83,17 @@ p{
   outline-color: #097700;
   width: 100%;
   margin-bottom: 5px;
+  border: 0;
 }
 
 #contact-form input[type="submit"]{
   width: auto;
   padding: 10px 30px;
   float: right;
+  background: #00af0a;
+  border: 3px solid #33d43b;
+  border-radius: 4px;
+  color: white;
 }
 
 
@@ -146,6 +151,16 @@ p{
     border-color: #097700;
     color: #097700;
     transform: scale3d(1.2, 1.2, 1.2);
+  }
+
+  #contact-form input{
+    width: 49%;
+    float: left;
+    margin-bottom: 12px;
+  }
+
+  #contact-form input:nth-of-type(odd){
+    margin-right: 2%;
   }
 }
 
