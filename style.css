@@ -105,6 +105,7 @@ hr {
 .hero-container{
   text-align: center;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .hero{
@@ -113,7 +114,7 @@ hr {
   border-radius: 4px;
   margin-bottom: 40px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.41);
-  transition: background-color 400ms linear;
+  transition: background-color 100ms linear;
 }
 
 .hero ul{
@@ -138,6 +139,11 @@ hr {
 
 .storage-container {
   padding-bottom: 20px;
+}
+
+.storage{
+  text-align: center;
+  padding-bottom: 10px;
 }
 
 #contact-form{
